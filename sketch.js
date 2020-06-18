@@ -44,7 +44,7 @@
     monkey.addAnimation("collided", player_collided);
     monkey.scale = 0.1;
    
-    gameOver = createSprite(300,290);
+    gameOver = createSprite(300,200);
     gameOver.addImage(gameOverImg);
     gameOver.scale = 1.0;
     gameOver.visible = false;
@@ -72,8 +72,7 @@
     
     if(stoneGroup.isTouching(monkey)){
       monkey.scale = 0.1;
-      score = score -1;
-      stoneGroup.destroyEach();
+       stoneGroup.destroyEach();
         
     }
       
@@ -109,6 +108,9 @@
     }
       }
       
+    if (jungle.x < 300){
+    jungle.x = jungle.width/2;
+    }  
       
     monkey.velocityY = monkey.velocityY +1;
     monkey.collide (invisible);
@@ -123,14 +125,15 @@
     gameOver.visible = true;
     monkey.changeAnimation("collided", player_collided); 
     
+      jungle.visible = false;
+      wall.visible = false;
+      monkey.visible = false;
       
-      wall.velocityX =0;
+      wall.velocityX = 0;
      
     }
       
-   if (jungle.x < 300){
-    jungle.x = jungle.width/2;
-    }
+   
       
     drawSprites ();
     
@@ -143,11 +146,11 @@
     }
 
     function banana1 (){
-    if (frameCount % 200 === 0){
+    if (frameCount % 100 === 0){
     banana = createSprite (600,100,600,500);
     banana.addImage (bananaImage);
     banana.scale = 0.1;
-    banana.velocityX = -4;
+    banana.velocityX = -5;
     banana.lifetime = 1000;
       bananaGroup.add(banana);
     
@@ -159,7 +162,7 @@
     stone = createSprite (600,350,600,500);
     stone.addImage (stoneImage);
     stone.scale = 0.1;
-    stone.velocityX = -2;
+    stone.velocityX = -3;
     stone.lifetime = 1000;
     stoneGroup.add(stone);
       
