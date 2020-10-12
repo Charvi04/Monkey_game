@@ -35,7 +35,7 @@ function preload(){
 
 function setup() {
 // Adjust the  canvas according to the width and height of the height.
-  createCanvas(displayWidth/2+50,displayHeight-150);
+  createCanvas(displayWidth/2+150,displayHeight-150);
   
 // Creating groups for bananas and stones.
 bananaGroup = createGroup();
